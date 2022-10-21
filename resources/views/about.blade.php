@@ -10,21 +10,21 @@
                 Web Development mainly the front-end side, creating standard layout with clean website designs.
             </p>
             <div class="specials">
-                <div>
+                <div class="col-sm-12 col-xs-12">
                     <i class="fas fa-file-alt fa-2x"></i>
                     <h3>Concepting</h3>
                     <p>
                         Designing a website with a modern or trending layout.
                     </p>
                 </div>
-                <div>
+                <div class="col-sm-12 col-xs-12">
                     <i class="fas fa-desktop fa-2x"></i>
                     <h3>Responsive Pages</h3>
                     <p>
                         A website that fits on all devices without compromising the layout or design.
                     </p>
                 </div>
-                <div>
+                <div class="col-sm-12 col-xs-12">
                     <i class="fas fa-object-ungroup fa-2x"></i>
                     <h3>Clean Design</h3>
                     <p>
@@ -62,12 +62,12 @@
 
     <section class="contact-info bg-dark">
         <div class="container">
-            <div class="box">
+            <div class="box col-sm-12 col-xs-12">
                 <i class="fas fa-phone fa-3x"></i>
                 <h3>Phone Number</h3>
                 <p>8142067</p>
             </div>
-            <div class="box">
+            <div class="box col-sm-12 col-xs-12">
                 <i class="fas fa-envelope fa-3x"></i>
                 <h3>Email Address</h3>
                 <p>fikri.faris@hotmail.com</p>
