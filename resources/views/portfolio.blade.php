@@ -2,73 +2,64 @@
 
 @section('content')
     <section class="toDo">
-        <div id="myDIV" class="TDheader">
-            <h2 style="margin:5px">To Do List</h2>
-            <input type="text" id="input" placeholder="Add Task">
-            <span onclick="newElement()" class="addBtn">Add</span>
-        </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form action="{{ url('/addTask') }}" method="POST">
+            @csrf
+            <div id="myDIV" class="TDheader">
+                <h2 style="margin:5px">To Do List</h2>
+                <input class="date form-control" type="text" id="date" name="date" placeholder="Select Date">
+                <input class="form-control" type="text" id="task" name="task" placeholder="Add Task">
+                <button class="btn btn-primary" type="submit">Add</button>
+            </div>
+        </form>
 
-        <ul id="myUL">
+        <ul class="list-group">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+            @foreach ($todos as $todo)
+                <li class="list-group-item">
+                    {{ $todo->task }}
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse-{{ $loop->index }}" aria-expanded="false">
+                        Edit
+                    </button>
+                    <form action="{{ url('todos/' . $todo->id) }}" method="POST" style="display: inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
 
+                    <div class="collapse mt-2" id="collapse-{{ $loop->index }}">
+                        <div class="card card-body">
+                            <form action="{{ url('todos/' . $todo->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input class="date" type="text" id="date" name="date"
+                                    value="{{ date('d-m-Y', strtotime($todo->date)) }}">
+                                <input type="text" id="task" name="task" value="{{ $todo->task }}">
+                                <button class="btn btn-secondary" type="submit">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            @endforeach
         </ul>
     </section>
 
-    <script>
-        // Create a "close" button and append it to each list item
-        var myNodelist = document.getElementsByTagName("LI");
-        var i;
-        for (i = 0; i < myNodelist.length; i++) {
-            var span = document.createElement("SPAN");
-            var txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(txt);
-            myNodelist[i].appendChild(span);
-        }
-
-        // Click on a close button to hide the current list item
-        var close = document.getElementsByClassName("close");
-        var i;
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function() {
-                var div = this.parentElement;
-                div.style.display = "none";
-            }
-        }
-
-        // Add a "checked" symbol when clicking on a list item
-        var list = document.querySelector('ul');
-        list.addEventListener('click', function(ev) {
-            if (ev.target.tagName === 'LI') {
-                ev.target.classList.toggle('checked');
-            }
-        }, false);
-
-        // Create a new list item when clicking on the "Add" button
-        function newElement() {
-            var li = document.createElement("li");
-            var inputValue = document.getElementById("input").value;
-            var t = document.createTextNode(inputValue);
-            li.appendChild(t);
-            if (inputValue === '') {
-                alert("Type in a task");
-            } else {
-                document.getElementById("myUL").appendChild(li);
-            }
-            document.getElementById("input").value = "";
-
-            var span = document.createElement("SPAN");
-            var txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(txt);
-            li.appendChild(span);
-
-            for (i = 0; i < close.length; i++) {
-                close[i].onclick = function() {
-                    var div = this.parentElement;
-                    div.style.display = "none";
-                }
-            }
-        }
-
+    <script type="text/javascript">
+        $('.date').datepicker({
+            format: 'dd-mm-yyyy'
+        });
     </script>
 @endsection

@@ -16,8 +16,7 @@ a {
   text-decoration: none;
 }
 
-h1,
-h2 {
+h1, h2 {
   font-weight: 300;
   line-height: 1.2;
 }
@@ -108,7 +107,7 @@ p {
   background: #eee;
   font-size: 18px;
   transition: 0.2s;
-
+  
   /* make the list items unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -206,7 +205,7 @@ input {
 
 /* specials */
 #home-a {
-  padding: 20px 0
+padding: 20px 0
 }
 
 #home-a .specials {
@@ -218,7 +217,7 @@ input {
 
 #home-a .specials .fas {
   color: blue;
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.4rem; 
 }
 
 /* Skills */
@@ -231,14 +230,14 @@ input {
   height: 20px;
   background: #ccc;
   border-radius: 5px;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.6rem; 
 }
 
 #about-b .progress div {
-  height: 100%;
-  color: #fff;
-  text-align: center;
-  background: blue;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    background: blue; 
 }
 
 /* contact info */
@@ -261,7 +260,7 @@ input {
   padding: 20px 0px;
   /* position: absolute; */
   right: 0px;
-  left: 0px;
+  left: 0px; 
 }
 
 /* tablets & smaller */
@@ -276,22 +275,29 @@ input {
 }
 
 /* smartphone */
-@media(max-width: 400px) {
+@media(max-width: 500px) {
   .hero {
-    height: 20rem;
+    height: 6rem;
+  }
+
+  .hero .logo {
+    display: none;
+  }
+
+  .hero .content {
+   display: none;
   }
 
   .flex-items {
     flex-direction: column;
   }
 
-  .flex-columns .column,
-  .flex-grid .column {
+  .flex-columns .column, .flex-grid .column {
     flex: 100%;
     max-width: 100%;
   }
 
   .box {
-    width: 100%;
+  width: 100%;
   }
 }

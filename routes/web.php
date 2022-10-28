@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\todoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::view('/portfolio', 'portfolio');
 Route::view('/about', 'about');
+
+Route::get('portfolio', [todoController::class, 'index']);
+Route::post('/addTask', [todoController::class, 'store']);
+Route::put('/todos/{id}', [todoController::class, 'update']);
+Route::delete('/todos/{id}', [todoController::class, 'destroy']);
