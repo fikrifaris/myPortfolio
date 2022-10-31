@@ -8,11 +8,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DateList extends Model
 {
-    use HasFactory;
     use SoftDeletes;
 
-    protected $table = 'date_lists';
+    public $table = 'date_lists';
     protected $primaryKey = 'id';
-    protected $fillable = ['date'];
+    public $fillable = ['date'];
     protected $dates = ['deleted_at'];
+
+    public function todos()
+    {
+        return $this->hasMany(todo::class);
+    }
 }

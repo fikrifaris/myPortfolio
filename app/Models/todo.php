@@ -10,8 +10,18 @@ class todo extends Model
 {
     use SoftDeletes;
     
-    protected $table = 'todos';
+    public $table = 'todos';
     protected $primaryKey = 'id';
-    protected $fillable = ['date', 'task', 'status'];
+    public $fillable = ['task', 'status', 'date_list_id'];
     protected $dates = ['deleted_at'];
+
+
+     /**
+     * Model Relationship Related Code
+     *
+     */
+    public function date_lists()
+    {
+        return $this->belongsTo('DateList', 'id');
+    }
 }

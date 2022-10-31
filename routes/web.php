@@ -21,6 +21,10 @@ Route::get('/', function () {
 Route::view('/about', 'about');
 
 Route::get('portfolio', [todoController::class, 'index']);
-Route::post('/addTask', [todoController::class, 'store']);
+Route::post('/addDate', [todoController::class, 'store']);
+Route::post('/addTask/{id}', [todoController::class, 'storeTask']);
 Route::put('/todos/{id}', [todoController::class, 'update']);
+Route::put('/editTask/{id}', [todoController::class, 'updateTask']);
+Route::put('/marked/{id}', [todoController::class, 'completeTask']);
 Route::delete('/todos/{id}', [todoController::class, 'destroy']);
+Route::delete('/taskDel/{id}', [todoController::class, 'destroyTask']);

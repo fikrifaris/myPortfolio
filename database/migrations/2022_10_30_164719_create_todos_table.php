@@ -15,13 +15,16 @@ class CreateTodosTable extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('date');
             $table->string('task');
-            $table->int('status');
-            $table->int('dateList_id');
+            $table->integer('status');
+            $table->integer('date_list_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });
+
+        Schema::table('todos', function($table) {
+       $table->foreign('date_list_id')->references('id')->on('date_lists')->onDelete('cascade');;
+   });
     }
 
     /**
