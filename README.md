@@ -69,11 +69,19 @@ To get a local copy up and running follow these steps:
    ```sh
    npm install
    ```
-3. Run the app through localhost
+   
+3. Change '.env.example' to '.env' for Database configuration
+   
+   
+4. Run Migration
+   ```sh
+   php artisan migrate
+   ```
+5. Run the app through localhost
    ```sh
    php artisan serve
    ```
-4. Click or copy the localhost address to browser. Example:
+6. Click or copy the localhost address to browser. Example:
    ```sh
    http://127.0.0.1:8000
    ```
