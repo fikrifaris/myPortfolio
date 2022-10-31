@@ -25,6 +25,6 @@ Route::post('/addDate', [todoController::class, 'store']);
 Route::post('/addTask/{id}', [todoController::class, 'storeTask']);
 Route::put('/todos/{id}', [todoController::class, 'update']);
 Route::put('/editTask/{id}', [todoController::class, 'updateTask']);
-Route::put('/marked/{id}', [todoController::class, 'completeTask']);
+Route::put('/marked/{id}', [todoController::class, 'checkTask']);
 Route::delete('/todos/{id}', [todoController::class, 'destroy']);
 Route::delete('/taskDel/{id}', [todoController::class, 'destroyTask']);

@@ -16,7 +16,6 @@
             <div id="myDIV" class="TDheader">
                 <h2 style="margin:5px">To Do List</h2>
                 <input class="date form-control" type="text" id="date" name="date" placeholder="Select Date">
-                {{-- <input class="form-control" type="text" id="task" name="task" placeholder="Add Task"> --}}
                 <button class="btn btn-primary" type="submit">Add</button>
             </div>
         </form>
@@ -29,51 +28,58 @@
             @endif
             @foreach ($dates as $date)
                 <li class="list-group-item">
-                    {{ $date->date }}
-                    <button class="btn btn-success" type="submit" data-bs-toggle="collapse"
-                        data-bs-target="#collapse-{{ $loop->index }}" aria-expanded="false">Add Task</button>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                    <b>{{ $date->date }}</b>
+                    <button class="btn" type="submit" data-bs-toggle="collapse"
                         data-bs-target="#collapse-{{ $loop->index }}" aria-expanded="false">
-                        Edit
+                        <i class="fas-sharp fa-solid fa-square-plus fa-xl" title="Add Task"></i>
+                    </button>
+                    <button class="btn" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse2-{{ $loop->index }}" aria-expanded="false">
+                        <i class="fas-sharp fa-solid fa-pen-to-square fa-xl" title="Edit Date"></i>
+
                     </button>
                     <form action="{{ url('todos/' . $date->id) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger" type="submit">Delete</button>
+                        <button class="btn" type="submit"><i class="fas-sharp fa-solid fa-trash fa-xl"
+                                title="Delete Date"></i></button>
                     </form>
 
                     @foreach ($date->todos as $todo)
-                        <ul>
-
+                        <ul class="task-section">
                             <li>
                                 @if ($todo->status == 1)
-                                    <p style="color: green"><s>{{ $todo->task }}</s></p>
+                                    <s style="color: green">{{ $todo->task }}</s>
                                 @else
                                     {{ $todo->task }}
                                 @endif
-                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse3-{{ $loop->index }}" aria-expanded="false">
-                                    Edit Task
+                                <button class="btn" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse3-{{ $loop->index }}-{{ $todo->id }}"
+                                    aria-expanded="false">
+                                    <i class="fas-sharp fa-solid fa-pen-to-square fa-xl" title="Edit Task"></i>
                                 </button>
 
                                 <form action="{{ url('taskDel/' . $todo->id) }}" method="POST"
                                     style="display: inline-block;">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                    <button class="btn" type="submit"><i class="fas-sharp fa-solid fa-trash fa-xl"
+                                            title="Delete Task"></i></button>
                                 </form>
 
                                 <form action="{{ url('marked/' . $todo->id) }}" method="POST"
                                     style="display: inline-block;">
                                     @csrf
                                     @method('PUT')
-                                    <button class="btn btn-success" type="submit">Complete</button>
+                                    <button class="btn" type="submit"><i
+                                            class="fas-sharp fa-solid fa-circle-check fa-xl"
+                                            title="Checked Task"></i></button>
                                 </form>
                             </li>
 
                         </ul>
 
-                        <div class="collapse mt-2" id="collapse3-{{ $loop->index }}">
+                        <div class="collapse mt-2" id="collapse3-{{ $loop->index }}-{{ $todo->id }}">
                             <div class="card card-body">
                                 <form action="{{ url('editTask/' . $todo->id) }}" method="POST">
                                     @csrf

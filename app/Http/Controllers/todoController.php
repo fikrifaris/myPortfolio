@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\todo;
 use App\Models\dateList;
 use Carbon\Carbon;
+use Illuminate\Validation\ValidationException;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class todoController extends Controller
 {
@@ -16,7 +19,7 @@ class todoController extends Controller
     // $dates = DB::table('date_lists')->get();
     $dates = dateList::with('todos')->get();
 
-    //  dd($dates->todos->task);
+      //dd($dates);
 
         return view ('portfolio',compact(
             'dates',
@@ -38,14 +41,19 @@ class todoController extends Controller
 
          $dateFormat = Carbon::parse($request->date)->format("Y-m-d");
 
+        try {
         // store the data
         DB::table('date_lists')->insert([
             'date' => $dateFormat,
         ]);
 
         // redirect
-        return redirect('portfolio')->with('status', 'Date added!');
-    }
+        return redirect('portfolio')->with('success', 'Date added!');
+        } catch (\Exception $e){
+            return redirect('portfolio')
+                ->with('error', 'Error during the creation!');
+        }
+    } 
 
     public function storeTask(Request $request, $id)
     {
@@ -62,17 +70,7 @@ class todoController extends Controller
         ]);
 
         // redirect
-        return redirect('portfolio')->with('status', 'Task added!');
-    }
-    
-    public function show($id)
-    {
-        
-    }
-    
-    public function edit($id)
-    {
-        
+        return redirect('portfolio')->with('success', 'Task added!');
     }
   
     public function update(Request $request, $id)
@@ -90,7 +88,7 @@ class todoController extends Controller
         ]);
 
         // redirect
-        return redirect('portfolio')->with('status', 'Date updated!');
+        return redirect('portfolio')->with('success', 'Date updated!');
     }
 
     public function updateTask(Request $request, $id)
@@ -106,18 +104,30 @@ class todoController extends Controller
         ]);
 
         // redirect
-        return redirect('portfolio')->with('status', 'Task updated!');
+        return redirect('portfolio')->with('success', 'Task updated!');
     }
 
-    public function completeTask(Request $request, $id)
+    public function checkTask(Request $request, $id)
     {
+
+        $status = todo::get()->pluck('status');
+         //dd($status);
+        if ($status[0] == 0) {
         // update the data
         DB::table('todos')->where('id', $id)->update([
             'status' => 1,
         ]);
+        Alert::success('Checked', 'Task Completed');
+        } else {
+        DB::table('todos')->where('id', $id)->update([
+        'status' => 0,
+        ]);
+
+        Alert::warning('Unchecked', 'Task Not Completed');
+        }  
 
         // redirect
-        return redirect('portfolio')->with('status', 'Task Completed!');
+        return redirect('portfolio');
     }
   
     public function destroy($id)
@@ -125,8 +135,9 @@ class todoController extends Controller
          // delete the todo
         DB::table('date_lists')->where('id', $id)->delete();
 
+        Alert::warning('Warning Title', 'Warning Message');
         // redirect
-        return redirect('portfolio')->with('status', 'List removed!');
+        return redirect('portfolio')->with('warning', 'List removed!');
     }
 
     public function destroyTask($id)

@@ -16,7 +16,8 @@ a {
   text-decoration: none;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: 300;
   line-height: 1.2;
 }
@@ -103,11 +104,10 @@ p {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
-  list-style-type: none;
   background: #eee;
   font-size: 18px;
   transition: 0.2s;
-  
+
   /* make the list items unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -117,45 +117,6 @@ p {
 /* Set all odd list items to a different color (zebra-stripes) */
 .toDo ul li:nth-child(odd) {
   background: #f9f9f9;
-}
-
-/* Darker background-color on hover */
-.toDo ul li:hover {
-  background: #ddd;
-}
-
-/* When clicked on, add a background color and strike out text */
-.toDo ul li.checked {
-  background: #888;
-  color: #fff;
-  text-decoration: line-through;
-}
-
-/* Add a "checked" mark when clicked on */
-.toDo ul li.checked::before {
-  content: '';
-  position: absolute;
-  border-color: #fff;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
-}
-
-/* Style the close button */
-.close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 12px 16px 12px 16px;
-}
-
-.close:hover {
-  background-color: #f44336;
-  color: white;
 }
 
 /* Style the header */
@@ -205,7 +166,7 @@ input {
 
 /* specials */
 #home-a {
-padding: 20px 0
+  padding: 20px 0
 }
 
 #home-a .specials {
@@ -217,7 +178,7 @@ padding: 20px 0
 
 #home-a .specials .fas {
   color: blue;
-  padding-bottom: 0.4rem; 
+  padding-bottom: 0.4rem;
 }
 
 /* Skills */
@@ -230,14 +191,14 @@ padding: 20px 0
   height: 20px;
   background: #ccc;
   border-radius: 5px;
-  margin-bottom: 0.6rem; 
+  margin-bottom: 0.6rem;
 }
 
 #about-b .progress div {
-    height: 100%;
-    color: #fff;
-    text-align: center;
-    background: blue; 
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  background: blue;
 }
 
 /* contact info */
@@ -260,7 +221,7 @@ padding: 20px 0
   padding: 20px 0px;
   /* position: absolute; */
   right: 0px;
-  left: 0px; 
+  left: 0px;
 }
 
 /* tablets & smaller */
@@ -285,19 +246,20 @@ padding: 20px 0
   }
 
   .hero .content {
-   display: none;
+    display: none;
   }
 
   .flex-items {
     flex-direction: column;
   }
 
-  .flex-columns .column, .flex-grid .column {
+  .flex-columns .column,
+  .flex-grid .column {
     flex: 100%;
     max-width: 100%;
   }
 
   .box {
-  width: 100%;
+    width: 100%;
   }
 }
