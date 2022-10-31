@@ -32,7 +32,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project showcase a simple portfolio with a simple to-Do List function.
+This project showcase a simple portfolio with a simple to-Do List function. The to-Do List uses CRUD functions, where user have to input a date first then they can
+insert task or input another date.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
