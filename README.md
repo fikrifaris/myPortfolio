@@ -73,6 +73,7 @@ To get a local copy up and running follow these steps:
    ```sh
    git pull
    ```
+   then skip to step 5
    
 2. Install Package Dependencies
    ```sh
