@@ -16,7 +16,8 @@ a {
   text-decoration: none;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: 300;
   line-height: 1.2;
 }
@@ -107,7 +108,7 @@ p {
   background: #eee;
   font-size: 18px;
   transition: 0.2s;
-  
+
   /* make the list items unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -175,7 +176,7 @@ p {
 }
 
 /* Style the input */
-input {
+.date {
   margin: 0;
   border: none;
   border-radius: 0;
@@ -206,7 +207,7 @@ input {
 
 /* specials */
 #home-a {
-padding: 20px 0
+  padding: 20px 0
 }
 
 #home-a .specials {
@@ -218,7 +219,7 @@ padding: 20px 0
 
 #home-a .specials .fas {
   color: blue;
-  padding-bottom: 0.4rem; 
+  padding-bottom: 0.4rem;
 }
 
 /* Skills */
@@ -231,14 +232,14 @@ padding: 20px 0
   height: 20px;
   background: #ccc;
   border-radius: 5px;
-  margin-bottom: 0.6rem; 
+  margin-bottom: 0.6rem;
 }
 
 #about-b .progress div {
-    height: 100%;
-    color: #fff;
-    text-align: center;
-    background: blue; 
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  background: blue;
 }
 
 /* contact info */
@@ -261,7 +262,7 @@ padding: 20px 0
   padding: 20px 0px;
   /* position: absolute; */
   right: 0px;
-  left: 0px; 
+  left: 0px;
 }
 
 /* tablets & smaller */
@@ -286,19 +287,20 @@ padding: 20px 0
   }
 
   .hero .content {
-   display: none;
+    display: none;
   }
 
   .flex-items {
     flex-direction: column;
   }
 
-  .flex-columns .column, .flex-grid .column {
+  .flex-columns .column,
+  .flex-grid .column {
     flex: 100%;
     max-width: 100%;
   }
 
   .box {
-  width: 100%;
+    width: 100%;
   }
 }

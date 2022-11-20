@@ -12,7 +12,6 @@
   cursor: pointer;
   display: inline-block;
   padding: 10px 30px;
-  margin-top: 20px;
   color: #fff;
   background-color: blue;
   border: none;
@@ -25,22 +24,26 @@
   color: white;
 }
 
-.btn-primary, .bg-primary {
+.btn-primary,
+.bg-primary {
   background: #28a745;
   color: #fff;
 }
 
-.btn-secondary, .bg-secondary {
+.btn-secondary,
+.bg-secondary {
   background: #0284d0;
   color: #fff;
 }
 
-.btn-dark, .bg-dark {
+.btn-dark,
+.bg-dark {
   background: #333;
   color: #fff;
 }
 
-.btn-light, .bg-light {
+.btn-light,
+.bg-light {
   background: #f4f4f4;
   color: #333;
 }
@@ -54,53 +57,66 @@
   max-width: 1280px;
   padding: 0 1.5rem;
   margin: auto;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
-  lead {
+lead {
   font-size: 1.3rem;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+}
 
 .text-center {
-  text-align: center; }
+  text-align: center;
+}
 
 .py-1 {
-  padding: 1rem 0; }
+  padding: 1rem 0;
+}
 
 .py-2 {
-  padding: 2rem 0; }
+  padding: 2rem 0;
+}
 
 .py-3 {
-  padding: 3rem 0; }
+  padding: 3rem 0;
+}
 
 .py-4 {
-  padding: 4rem 0; }
+  padding: 4rem 0;
+}
 
 .my-1 {
-  margin: 1rem 0; }
+  margin: 1rem 0;
+}
 
 .my-2 {
-  margin: 2rem 0; }
+  margin: 2rem 0;
+}
 
 .my-3 {
-  margin: 3rem 0; }
+  margin: 3rem 0;
+}
 
 .my-4 {
-  margin: 4rem 0; }
+  margin: 4rem 0;
+}
 
-  .section-title {
+.section-title {
   font-size: 2rem;
   display: block;
   padding-bottom: 0.5rem;
   text-align: center;
   font-weight: 100;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 .bottom-line {
   height: 2px;
   width: 3rem;
   background: blue;
   display: block;
-  margin: 0 auto 1rem auto; }
+  margin: 0 auto 1rem auto;
+}
 
 
 
@@ -112,7 +128,7 @@
   height: 100%;
 }
 
-.flex-items > div {
+.flex-items>div {
   padding: 20px;
 }
 
@@ -183,7 +199,7 @@
 }
 
 .section-padding {
-  padding:  20px 20px 40px;
+  padding: 20px 20px 40px;
 }
 
 /* flex grid */
@@ -196,5 +212,5 @@
 .flex-grid .column {
   flex: 25%;
   max-width: 25%;
-  padding:  0 4px;
+  padding: 0 4px;
 }

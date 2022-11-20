@@ -7,9 +7,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav me-auto mb-2 mb-lg-0">
-                 <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
-                 <a class="nav-link {{ request()->is('portfolio') ? 'active' : '' }}" href="/portfolio">Portfolio</a>
-                 <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="/about">About</a>
+                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+                <a class="nav-link {{ request()->is('portfolio') ? 'active' : '' }}" href="/portfolio">Portfolio</a>
+                <a class="nav-link {{ request()->is('statistics') ? 'active' : '' }}" href="/statistics">Statistics</a>
+                <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="/about">About</a>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\todoController;
+use App\Http\Controllers\ChartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::view('/about', 'about');
+
+Route::get('statistics', [ChartController::class, 'index']);
 
 Route::get('portfolio', [todoController::class, 'index']);
 Route::post('/addDate', [todoController::class, 'store']);
