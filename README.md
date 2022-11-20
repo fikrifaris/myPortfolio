@@ -66,6 +66,14 @@ To get a local copy up and running follow these steps:
    ```sh
    git clone https://github.com/fikrifaris/myPortfolio.git
    ```
+   
+   or
+   
+   If there is existing repository in your local
+   ```sh
+   git pull
+   ```
+   
 2. Install Package Dependencies
    ```sh
    npm install
